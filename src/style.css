@@ -1,0 +1,25 @@
+/* font-family: 'Courgette', cursive; */
+/* font-family: 'Open Sans', sans-serif; */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    background-image: url('/images/clouds.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.page-title {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 3px 3px black;
+}
