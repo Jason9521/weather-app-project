@@ -12,6 +12,13 @@
     <title>Jaydar Weather App</title>
 </head>
 <body>
+
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="/images/clouds.mp4" type="video/mp4">
+        </video>
+    </div>
+
     <h1 class="page-title">Jaydar Weather App</h1>
 
     <section class="page-top">
@@ -24,7 +31,6 @@
                 <h1 class="tempurature" id="tempurature">80°F</h1>
             </div>
 
-           
             <div class="forecast-bottom">
 
                 <div class="bottom-one">
@@ -71,52 +77,50 @@
 
             <div class="hourly-container">
                 <div class="time-one">
-                    <h4>12AM</h4>
-                    <img src="/images/clouds.png" alt="">
-                    <h4>54°</h4>
+                    <h4 id="hrTextOne">12AM</h4>
+                    <img id="hrImgOne" src="/images/clouds.png" alt="">
+                    <h4 id="hrTempOne">54°</h4>
                 </div>
                 <div class="time-two">
-                    <h4>12AM</h4>
-                    <img src="/images/clouds.png" alt="">
-                    <h4>54°</h4>
+                    <h4 id="hrTextTwo">12AM</h4>
+                    <img id="hrImgTwo" src="/images/clouds.png" alt="">
+                    <h4 id="hrTempTwo">54°</h4>
                 </div>
                 <div class="time-three">
-                    <h4>12AM</h4>
-                    <img src="/images/clouds.png" alt="">
-                    <h4>54°</h4>
+                    <h4 id="hrTextThree">12AM</h4>
+                    <img id="hrImgThree" src="/images/clouds.png" alt="">
+                    <h4 id="hrTempThree">54°</h4>
                 </div>
                 <div class="time-four">
-                    <h4>12AM</h4>
-                    <img src="/images/clouds.png" alt="">
-                    <h4>54°</h4>
+                    <h4 id="hrTextFour">12AM</h4>
+                    <img id="hrImgFour" src="/images/clouds.png" alt="">
+                    <h4 id="hrTempFour">54°</h4>
                 </div>
                 <div class="time-five">
-                    <h4>12AM</h4>
-                    <img src="/images/clouds.png" alt="">
-                    <h4>54°</h4>
+                    <h4 id="hrTextFive">12AM</h4>
+                    <img id="hrImgFive" src="/images/clouds.png" alt="">
+                    <h4 id="hrTempFive" >54°</h4>
                 </div>
                 <div class="time-six">
-                    <h4>12AM</h4>
-                    <img src="/images/clouds.png" alt="">
-                    <h4>54°</h4>
+                    <h4 id="hrTextSix">12AM</h4>
+                    <img id="hrImgSix" src="/images/clouds.png" alt="">
+                    <h4 id="hrTempSix">54°</h4>
                 </div>
                 <div class="time-seven">
-                    <h4>12AM</h4>
-                    <img src="/images/clouds.png" alt="">
-                    <h4>54°</h4>
+                    <h4 id="hrTextSeven">12AM</h4>
+                    <img id="hrImgSeven" src="/images/clouds.png" alt="">
+                    <h4 id="hrTempSeven">54°</h4>
                 </div>
                 <div class="time-eight">
-                    <h4>12AM</h4>
-                    <img src="/images/clouds.png" alt="">
-                    <h4>54°</h4>
+                    <h4 id="hrTextEight">12AM</h4>
+                    <img id="hrImgEight" src="/images/clouds.png" alt="">
+                    <h4 id="hrTempEight">54°</h4>
                 </div>
             </div>
 
         </div>
 
     </section>
-
-
 
     <p class="forecast-text" id="forecastText">Feels like 59°F. Moderate rain. Light air</p>
 
@@ -129,72 +133,72 @@
             <div class="daily-container">
 
                 <div class="day-one div-format">
-                    <h5>Mon, Jan 01</h5>
-                    <img src="/images/sunny.png" alt="">
-                    <h6>Clear Skies</h6>
+                    <h5 id="dayDateOne">Mon, Jan 01</h5>
+                    <img id="dayImgOne" src="/images/sunny.png" alt="">
+                    <h6 id="forecastOne">Clear Skies</h6>
                     <div class="rain-chance">
                         <img src="/images/water.png" alt="">
-                        <h6>50%</h6>
+                        <h6 id="dayRainOne">50%</h6>
                     </div>
                 </div>
                 
                 <div class="day-two div-format">
-                    <h5>Mon, Jan 01</h5>
-                    <img src="/images/sunny.png" alt="">
-                    <h6>Clear Skies</h6>
+                    <h5 id="dayDateTwo">Mon, Jan 01</h5>
+                    <img id="dayImgTwo" src="/images/sunny.png" alt="">
+                    <h6 id="forecastTwo">Clear Skies</h6>
                     <div class="rain-chance">
                         <img src="/images/water.png" alt="">
-                        <h6>50%</h6>
+                        <h6 id="dayRainTwo">50%</h6>
                     </div>
                 </div>
 
                 <div class="day-three div-format">
-                    <h5>Mon, Jan 01</h5>
-                    <img src="/images/sunny.png" alt="">
-                    <h6>Clear Skies</h6>
+                    <h5 id="dayDateThree">Mon, Jan 01</h5>
+                    <img id="dayImgThree" src="/images/sunny.png" alt="">
+                    <h6 id="forecastThree">Clear Skies</h6>
                     <div class="rain-chance">
                         <img src="/images/water.png" alt="">
-                        <h6>50%</h6>
+                        <h6 id="dayRainThree">50%</h6>
                     </div>
                 </div>
 
                 <div class="day-four div-format">
-                    <h5>Mon, Jan 01</h5>
-                    <img src="/images/sunny.png" alt="">
-                    <h6>Clear Skies</h6>
+                    <h5 id="dayDateFour">Mon, Jan 01</h5>
+                    <img id="dayImgFour" src="/images/sunny.png" alt="">
+                    <h6 id="forecastFour">Clear Skies</h6>
                     <div class="rain-chance">
                         <img src="/images/water.png" alt="">
-                        <h6>50%</h6>
+                        <h6 id="dayRainFour">50%</h6>
                     </div>
                 </div>
 
                 <div class="day-five div-format">
-                    <h5>Mon, Jan 01</h5>
-                    <img src="/images/sunny.png" alt="">
-                    <h6>Clear Skies</h6>
+                    <h5 id="dayDateFive">Mon, Jan 01</h5>
+                    <img id="dayImgFive" src="/images/sunny.png" alt="">
+                    <h6 id="forecastFive">Clear Skies</h6>
                     <div class="rain-chance">
                         <img src="/images/water.png" alt="">
-                        <h6>50%</h6>
+                        <h6 id="dayRainFive">50%</h6>
                     </div>
                 </div>
 
                 <div class="day-six div-format">
-                    <h5>Mon, Jan 01</h5>
-                    <img src="/images/sunny.png" alt="">
-                    <h6>Clear Skies</h6>
+                    <h5 id="dayDateSix">Mon, Jan 01</h5>
+                    <img id="dayImgSix" src="/images/sunny.png" alt="">
+                    <h6 id="forecastSix">Clear Skies</h6>
                     <div class="rain-chance">
                         <img src="/images/water.png" alt="">
-                        <h6>50%</h6>
+                        <h6 id="dayRainSix">50%</h6>
                     </div>
                 </div>
 
                 <div class="day-seven div-format">
-                    <h5>Mon, Jan 01</h5>
-                    <img src="/images/sunny.png" alt="">
-                    <h6>Clear Skies</h6>
+                    <h5 id="dayDateSeven">Mon, Jan 01</h5>
+                    <img id="dayImgSeven" src="/images/sunny.png" alt="">
+                    <h6 id="forecastSeven">Clear Skies</h6>
                     <div class="rain-chance">
                         <img src="/images/water.png" alt="">
-                        <h6>50%</h6>
+                        <h6 id="dayRainSeven">50%</h6>
                     </div>
                 </div>
 
@@ -203,12 +207,6 @@
         </div>
         
     </section>
-
-
-
-
-
-    
 
     <script src="/src/index.js"></script>
 </body>
