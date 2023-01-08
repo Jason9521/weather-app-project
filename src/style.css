@@ -1,11 +1,13 @@
 /* font-family: 'Courgette', cursive; */
 /* font-family: 'Open Sans', sans-serif; */
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    text-shadow: 3px 3px darkslategrey;
 }
 
 body {
@@ -22,4 +24,181 @@ body {
     font-size: 2.5rem;
     color: white;
     text-shadow: 3px 3px black;
+    padding: 2rem 0 4rem;
+}
+
+/* PAGE TOP */
+
+.page-top {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+/* FORECAST CONTAINER */
+
+.forecast-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 17rem;
+}
+
+.location {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
+.date {
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.tempurature {
+    font-size: 3rem;
+}
+
+
+.forecast-bottom {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+.forecast-bottom h1 {
+    padding-top: 1rem;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    font-size: 1.2rem;
+}
+
+.forecast-bottom h4 {
+    padding-top: 0.5rem;
+}
+
+.bottom-one,
+.bottom-two,
+.bottom-three {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.bottom-one img {
+    height: 4rem;
+}
+
+.bottom-one h1 {
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.dew-point,
+.visibility {
+    text-align: right;
+    padding-bottom: 0.2rem;
+}
+
+/* HOURLY FORECAST */
+
+.hourly-forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hourly-forecast h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3.5rem;
+}
+
+.hourly-container div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 10rem;
+    width: 15rem;
+    padding-bottom: 1.1rem;
+    font-size: 1rem;
+}
+
+.hourly-forecast img {
+    display: flex;
+    flex-direction: column;
+    height: 2rem;
+}
+
+.time-eight {
+    padding-bottom: 0 !important;
+}
+
+
+
+.forecast-text {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    padding-bottom: 2rem;
+}
+
+/* PAGE BOTTOM */
+
+.page-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 70rem;
+}
+
+.daily-forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 12rem;
+    width: 60rem;
+    margin: 0 auto;
+}
+
+.daily-forecast h2 {
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* DAILY CONTAINER */
+
+.daily-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.daily-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.daily-container img:nth-child(2) {
+    height: 3rem;
+    width: 3rem;
+}
+
+.daily-container img:nth-child(1) {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.div-format > * {
+    padding-bottom: 0.5rem;
+}
+
+.daily-container div div {
+    width: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
