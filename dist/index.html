@@ -8,33 +8,201 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
-    <title>Jupiter Weather App</title>
+    <script src="https://kit.fontawesome.com/141c8af32c.js" crossorigin="anonymous"></script>
+    <title>Jaydar Weather App</title>
 </head>
 <body>
-    <h1 class="page-title">Jupiter Weather App</h1>
+    <h1 class="page-title">Jaydar Weather App</h1>
 
-    <div class="forecast-container">
+    <section class="page-top">
 
-        <section class="forecast-left">
-            <h4 class="location" id="location"></h4>
-            <h4 class="date" id="date"></h4>
-            <h1 class="tempurature" id="tempurature"></h1>
-        </section>
+        <div class="forecast-container">
 
-        <section class="forecast-right">
-            <div class="forecast-right-one">
-                <h4 class="humidity" id="humidity"></h4>
-                <h4 class="dew-point" id="dewPoint"></h4>
+            <div class="forecast-top">
+                <h4 class="location" id="location">Rock Hill, SC</h4>
+                <h4 class="date" id="date">Wednesday May 25, 2022</h4>
+                <h1 class="tempurature" id="tempurature">80°F</h1>
             </div>
-            <div class="forecast-right-two">
-                <h4 class="wind" id="wind"></h4>
-                <h4 class="visibility" id="visibility"></h4>
+
+           
+            <div class="forecast-bottom">
+
+                <div class="bottom-one">
+                    <div class="sunrise-info">
+                        <img src="/images/sunrise.png" alt="sunrise">
+                        <h1>Sunrise</h1>
+                        <h4 class="sunrise-text" id="sunriseText">6:35AM</h4>
+                    </div>
+                    <div class="sunset-info">
+                        <img src="/images/sunset.png" alt="sunset">
+                        <h1>Sunset</h1>
+                        <h4 class="sunset-text" id="sunsetText">5:34PM</h4>
+                    </div>
+                </div>
+
+                <div class="bottom-two">
+                    <div class="humidity">
+                        <h1>Humidity</h1>
+                        <h4 id="humidity">65%</h4>
+                    </div>
+                    <div class="dew-point">
+                        <h1>Dew Point</h1>
+                        <h4 id="dewPoint">51°F</h4>
+                    </div>
+                </div>
+
+                <div class="bottom-three">
+                    <div class="wind">
+                        <h1>Wind</h1>
+                        <h4 id="wind">3.4mph WNW</h4>
+                    </div>
+                    <div class="visibility">
+                        <h1>Visibility</h1>
+                        <h4 id="visibility">3.2km</h4>
+                    </div>
+                </div>
             </div>
-        </section>
+
+        </div>
+
+        <div class="hourly-forecast">
+
+            <h1>Hourly Forecast</h1>
+
+            <div class="hourly-container">
+                <div class="time-one">
+                    <h4>12AM</h4>
+                    <img src="/images/clouds.png" alt="">
+                    <h4>54°</h4>
+                </div>
+                <div class="time-two">
+                    <h4>12AM</h4>
+                    <img src="/images/clouds.png" alt="">
+                    <h4>54°</h4>
+                </div>
+                <div class="time-three">
+                    <h4>12AM</h4>
+                    <img src="/images/clouds.png" alt="">
+                    <h4>54°</h4>
+                </div>
+                <div class="time-four">
+                    <h4>12AM</h4>
+                    <img src="/images/clouds.png" alt="">
+                    <h4>54°</h4>
+                </div>
+                <div class="time-five">
+                    <h4>12AM</h4>
+                    <img src="/images/clouds.png" alt="">
+                    <h4>54°</h4>
+                </div>
+                <div class="time-six">
+                    <h4>12AM</h4>
+                    <img src="/images/clouds.png" alt="">
+                    <h4>54°</h4>
+                </div>
+                <div class="time-seven">
+                    <h4>12AM</h4>
+                    <img src="/images/clouds.png" alt="">
+                    <h4>54°</h4>
+                </div>
+                <div class="time-eight">
+                    <h4>12AM</h4>
+                    <img src="/images/clouds.png" alt="">
+                    <h4>54°</h4>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <p class="forecast-text" id="forecastText">Feels like 59°F. Moderate rain. Light air</p>
+
+    <section class="page-bottom">
+
+        <div class="daily-forecast">
+
+            <h2>7 Day Forecast</h2>
+
+            <div class="daily-container">
+
+                <div class="day-one div-format">
+                    <h5>Mon, Jan 01</h5>
+                    <img src="/images/sunny.png" alt="">
+                    <h6>Clear Skies</h6>
+                    <div class="rain-chance">
+                        <img src="/images/water.png" alt="">
+                        <h6>50%</h6>
+                    </div>
+                </div>
+                
+                <div class="day-two div-format">
+                    <h5>Mon, Jan 01</h5>
+                    <img src="/images/sunny.png" alt="">
+                    <h6>Clear Skies</h6>
+                    <div class="rain-chance">
+                        <img src="/images/water.png" alt="">
+                        <h6>50%</h6>
+                    </div>
+                </div>
+
+                <div class="day-three div-format">
+                    <h5>Mon, Jan 01</h5>
+                    <img src="/images/sunny.png" alt="">
+                    <h6>Clear Skies</h6>
+                    <div class="rain-chance">
+                        <img src="/images/water.png" alt="">
+                        <h6>50%</h6>
+                    </div>
+                </div>
+
+                <div class="day-four div-format">
+                    <h5>Mon, Jan 01</h5>
+                    <img src="/images/sunny.png" alt="">
+                    <h6>Clear Skies</h6>
+                    <div class="rain-chance">
+                        <img src="/images/water.png" alt="">
+                        <h6>50%</h6>
+                    </div>
+                </div>
+
+                <div class="day-five div-format">
+                    <h5>Mon, Jan 01</h5>
+                    <img src="/images/sunny.png" alt="">
+                    <h6>Clear Skies</h6>
+                    <div class="rain-chance">
+                        <img src="/images/water.png" alt="">
+                        <h6>50%</h6>
+                    </div>
+                </div>
+
+                <div class="day-six div-format">
+                    <h5>Mon, Jan 01</h5>
+                    <img src="/images/sunny.png" alt="">
+                    <h6>Clear Skies</h6>
+                    <div class="rain-chance">
+                        <img src="/images/water.png" alt="">
+                        <h6>50%</h6>
+                    </div>
+                </div>
+
+                <div class="day-seven div-format">
+                    <h5>Mon, Jan 01</h5>
+                    <img src="/images/sunny.png" alt="">
+                    <h6>Clear Skies</h6>
+                    <div class="rain-chance">
+                        <img src="/images/water.png" alt="">
+                        <h6>50%</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
         
-    </div>
-
-    <p class="forecast-text" id="forecastText"></p>
+    </section>
 
 
 
