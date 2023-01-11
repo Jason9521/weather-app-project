@@ -19,7 +19,13 @@
         </video>
     </div>
 
-    <h1 class="page-title">Jaydar Weather App</h1>
+    <div class="page-title">
+        <h1>Jaydar Weather App</h1>
+        <div class="searchbar">
+            <input id="searchBar" type="text">
+            <i id="searchBtn" class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
 
     <section class="page-top">
 
@@ -205,9 +211,13 @@
             </div>
 
         </div>
-        
-    </section>
 
-    <script src="/src/index.js"></script>
+        <dialog class="search-modal" id="searchModal">
+
+        </dialog>
+        
+    </section> 
+
+    <script src="main.js"></script>
 </body>
 </html>
