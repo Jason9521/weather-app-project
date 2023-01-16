@@ -20,7 +20,8 @@
     </div>
 
     <div class="page-title">
-        <h1>Jaydar Weather App</h1>
+        <!-- Remove 'someTitle id' -->
+        <h1 id="someTitle">Jaydar Weather App</h1>
         <div class="searchbar">
             <input id="searchBar" type="text">
             <i id="searchBtn" class="fa-solid fa-magnifying-glass"></i>
@@ -34,7 +35,11 @@
             <div class="forecast-top">
                 <h4 class="location" id="location">Rock Hill, SC</h4>
                 <h4 class="date" id="date">Wednesday May 25, 2022</h4>
-                <h1 class="tempurature" id="tempurature">80°F</h1>
+                <div class="temp-div">
+                    <h1 class="tempurature" id="tempurature">80°F / 42°F</h1>
+                    <img src="/images/sunny.png" alt="">
+                </div>
+                <p class="forecast-text" id="forecastText">Feels like 59°F. Moderate rain. Light air</p>
             </div>
 
             <div class="forecast-bottom">
@@ -127,8 +132,6 @@
         </div>
 
     </section>
-
-    <p class="forecast-text" id="forecastText">Feels like 59°F. Moderate rain. Light air</p>
 
     <section class="page-bottom">
 
