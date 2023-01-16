@@ -1,11 +1,11 @@
 "use strict"
 
-import { getID } from "./fetchData"
+import { getOptions } from "./fetchData"
 export {searchBtn}
 
 const searchBtn = document.getElementById('searchBtn')
 
 searchBtn.addEventListener('click', () => {
-    getID()
+    getOptions()
 })
 
