@@ -62,6 +62,9 @@ video {
     padding-bottom: 2rem;
     max-width: 70rem;
     margin: 0 auto;
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 /* FORECAST CONTAINER */
@@ -71,6 +74,7 @@ video {
     flex-direction: column;
     justify-content: space-between;
     width: 17rem;
+    
 }
 
 .location {
@@ -84,7 +88,17 @@ video {
 }
 
 .tempurature {
-    font-size: 3rem;
+    font-size: 2rem;
+}
+
+.temp-div {
+    display: flex;
+    align-items: center;
+}
+
+.temp-div img {
+    height: 2rem;
+    margin-left: 1.5rem;
 }
 
 .forecast-bottom {
@@ -165,10 +179,9 @@ video {
 
 
 .forecast-text {
-    text-align: center;
-    font-size: 1rem;
+    margin: 1.5rem 0;
+    font-size: 0.8rem;
     font-weight: 700;
-    padding-bottom: 2rem;
 }
 
 /* PAGE BOTTOM */
@@ -176,8 +189,11 @@ video {
 .page-bottom {
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 2rem auto;
     max-width: 70rem;
+    padding-top: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .daily-forecast {
