@@ -85,6 +85,7 @@ let getSunset
 let timeStart
 let hourArray
 let hourArraySliced
+let localTime = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 let hourOne
 let hourTwo
@@ -105,21 +106,15 @@ function setDataFarenheit() {
     date.textContent = format(parseISO(selectedData.days[0].datetime), 'iiii, PPP')
     tempurature.textContent = `${Math.round(selectedData.currentConditions.temp)}°F`
     forecastText.textContent = `${selectedData.currentConditions.conditions}. ${selectedData.description}`
-    sunriseText.textContent = formatInTimeZone(getSunrise, selectedData.timezone, 'h:mm a zzz', {locale: enUS})
-    sunsetText.textContent = formatInTimeZone(getSunset, selectedData.timezone, 'h:mm a zzz', {locale: enUS} )
+    sunriseText.textContent = formatInTimeZone(getSunrise, localTime, 'h:mm a zzz', {locale: enUS})
+    sunsetText.textContent = formatInTimeZone(getSunset, localTime, 'h:mm a zzz', {locale: enUS} )
     humidity.textContent = `${Math.round(selectedData.currentConditions.humidity)}%`
     dewPoint.textContent = `${Math.round(selectedData.currentConditions.dew)}°F`
     wind.textContent = `${selectedData.currentConditions.windspeed} mph`
     visibility.textContent = `${selectedData.currentConditions.visibility} miles`
-    // HOURLY FORECAST
-
-    setHourArray()
-    hourOne = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[0].datetime}Z`)
-    hrTextOne.textContent = formatInTimeZone(hourOne, selectedData.timezone, 'h:mm a zzz', {locale: enUS})
-    // GET THIS TO FETCH THE CORRECT TIME!!!
 }
 
-function setHourArray() {
+function setHourlyFarenheit() {
     hourArray = []
     hourArraySliced = []
 
@@ -134,11 +129,73 @@ function setHourArray() {
     })
 
     hourArraySliced = hourArray.slice(timeStart, timeStart + 8) 
-    console.log(hourArraySliced)   
+    
+    hourOne = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[0].datetime}`)
+    hourTwo = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[1].datetime}`)
+    hourThree = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[2].datetime}`)
+    hourFour = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[3].datetime}`)
+    hourFive = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[4].datetime}`)
+    hourSix = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[5].datetime}`)
+    hourSeven = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[6].datetime}`)
+    hourEight = new Date(`${selectedData.days[0].datetime}T${hourArraySliced[7].datetime}`)
+
+    hrTextOne.textContent = formatInTimeZone(hourOne, localTime, 'h:mm a', {locale: enUS})
+    hrTextTwo.textContent = formatInTimeZone(hourTwo, localTime, 'h:mm a', {locale: enUS})
+    hrTextThree.textContent = formatInTimeZone(hourThree, localTime, 'h:mm a', {locale: enUS})
+    hrTextFour.textContent = formatInTimeZone(hourFour, localTime, 'h:mm a', {locale: enUS})
+    hrTextFive.textContent = formatInTimeZone(hourFive, localTime, 'h:mm a', {locale: enUS})
+    hrTextSix.textContent = formatInTimeZone(hourSix, localTime, 'h:mm a', {locale: enUS})
+    hrTextSeven.textContent = formatInTimeZone(hourSeven, localTime, 'h:mm a', {locale: enUS})
+    hrTextEight.textContent = formatInTimeZone(hourEight, localTime, 'h:mm a', {locale: enUS})
+
+    hrImgOne.src = setIcon(hourArraySliced[0].icon)
+    hrImgTwo.src = setIcon(hourArraySliced[1].icon)
+    hrImgThree.src = setIcon(hourArraySliced[2].icon)
+    hrImgFour.src = setIcon(hourArraySliced[3].icon)
+    hrImgFive.src = setIcon(hourArraySliced[4].icon)
+    hrImgSix.src = setIcon(hourArraySliced[5].icon)
+    hrImgSeven.src = setIcon(hourArraySliced[6].icon)
+    hrImgEight.src = setIcon(hourArraySliced[7].icon)
+
+    hrTempOne.textContent = `${Math.round(hourArraySliced[0].temp)}°F`
+    hrTempTwo.textContent = `${Math.round(hourArraySliced[1].temp)}°F`
+    hrTempThree.textContent = `${Math.round(hourArraySliced[2].temp)}°F`
+    hrTempFour.textContent = `${Math.round(hourArraySliced[3].temp)}°F`
+    hrTempFive.textContent = `${Math.round(hourArraySliced[4].temp)}°F`
+    hrTempSix.textContent = `${Math.round(hourArraySliced[5].temp)}°F`
+    hrTempSeven.textContent = `${Math.round(hourArraySliced[6].temp)}°F`
+    hrTempEight.textContent = `${Math.round(hourArraySliced[7].temp)}°F`
+
+    console.log(hourArraySliced)
+}
+
+function setIcon(condition) {
+    if (condition == 'clear-day') {
+        return '/images/sunny.png'
+    }
+    else if (condition == 'clear-night') {
+        return '/images/crescent-moon.png'
+    }
+    else if (condition == 'partly-cloudy-day') {
+        return '/images/cloudy-day.png'
+    }
+    else if (condition == 'partly-cloudy-night') {
+        return '/images/cloudy-night.png'
+    }
+    else if (condition == 'cloudy') {
+        return '/images/clouds.png'
+    }
+    else if(condition == 'rain') {
+        return '/images/raining.png'
+    }
+    else if (condition == 'snow') {
+        return '/images/snowy.png'
+    }
 }
 
 someTitle.addEventListener('click', function() {
     setDataFarenheit()
-    setHourArray()
+    setHourlyFarenheit()
 })
 
+// Icon Names (delete when done)
