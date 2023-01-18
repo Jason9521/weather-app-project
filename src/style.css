@@ -225,8 +225,7 @@ video {
 }
 
 .daily-container img:nth-child(2) {
-    height: 3rem;
-    width: 3rem;
+    height: 2.5rem;
 }
 
 .daily-container img:nth-child(1) {
