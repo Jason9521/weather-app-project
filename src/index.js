@@ -1,8 +1,8 @@
 "use strict"
 
 import { executeSearch, getID } from "./fetchData"
-import { searchBtn } from "./events"
-import { setDataFarenheit } from "./applyData"
+import { searchBtn, tempToggle } from "./events"
+import { setDataFahrenheit } from "./applyData"
 
 
 
