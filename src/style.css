@@ -7,11 +7,12 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     color: white;
-    /* text-shadow: 3px 3px darkslategrey; */
 }
 
 body {
     width: 100vw;
+    background-color: white; 
+    /* ^^ ERASE WHEN DONE ^^ */
 }
 
 video {
@@ -52,6 +53,7 @@ video {
 
 .searchbar input {
     color: black;
+    text-shadow: none;
 }
 
 /* PAGE TOP */
@@ -65,6 +67,66 @@ video {
     padding: 1rem 0;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+}
+
+/* TEMP TOGGLE */
+
+.temp-toggle {
+    width: 4rem;
+    height: 2rem;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-fill {
+    position: relative;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 20px;
+    background-color: orange;
+    transition: background 0.2s;
+}
+
+.toggle-farhenheit {
+    color: black;
+    position: relative;
+    top: 5px;
+    left: 20px;
+    font-weight: 700;
+}
+
+.toggle-celcius {
+    color: black;
+    position: relative;
+    top: 5px;
+    left: 10px;
+    font-weight: 700;
+}
+
+.toggle-input:checked ~ .toggle-fill {
+    background-color: skyblue;
+}
+
+.toggle-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s;
+}
+
+.toggle-input:checked ~ .toggle-fill::after {
+    transform: translateX(2rem);
 }
 
 /* FORECAST CONTAINER */
