@@ -4,10 +4,9 @@ import { format, parseISO } from "date-fns"
 import { formatInTimeZone } from "date-fns-tz"
 import { enUS } from "date-fns/locale"
 import { selectedDataUS, selectedDataMetric } from "./fetchData"
-export { setDataFarenheit }
+export { setDataFahrenheit }
 
 const someTitle = document.getElementById('someTitle')
-
 
 const getLocation = document.getElementById('location')
 const date = document.getElementById('date')
@@ -88,6 +87,7 @@ let hourArray
 let hourArraySliced
 let localTime = Intl.DateTimeFormat().resolvedOptions().timeZone
 
+
 let hourOne
 let hourTwo
 let hourThree
@@ -99,7 +99,7 @@ let hourEight
 
 // FARENHEIT (US)
 
-function setDataFarenheit() {
+function setDataFahrenheit() {
     getSunrise = new Date(`${selectedDataUS.days[0].datetime}T${selectedDataUS.currentConditions.sunrise}`)
     getSunset = new Date(`${selectedDataUS.days[0].datetime}T${selectedDataUS.currentConditions.sunset}`)
     timeStart = Number(selectedDataUS.currentConditions.datetime.slice(0,2)) + 1
@@ -109,15 +109,15 @@ function setDataFarenheit() {
     tempurature.textContent = `${Math.round(selectedDataUS.currentConditions.temp)}°F`
     currentImg.src = setIcon(selectedDataUS.currentConditions.icon)
     forecastText.textContent = `${selectedDataUS.currentConditions.conditions}. ${selectedDataUS.description}`
-    sunriseText.textContent = formatInTimeZone(getSunrise, localTime, 'h:mm a zzz', {locale: enUS})
-    sunsetText.textContent = formatInTimeZone(getSunset, localTime, 'h:mm a zzz', {locale: enUS} )
+    sunriseText.textContent = formatInTimeZone(getSunrise, selectedDataUS.timezone, 'h:mm a zzz', {locale: enUS})
+    sunsetText.textContent = formatInTimeZone(getSunset, selectedDataUS.timezone, 'h:mm a zzz', {locale: enUS})
     humidity.textContent = `${Math.round(selectedDataUS.currentConditions.humidity)}%`
     dewPoint.textContent = `${Math.round(selectedDataUS.currentConditions.dew)}°F`
     wind.textContent = `${selectedDataUS.currentConditions.windspeed} mph`
     visibility.textContent = `${selectedDataUS.currentConditions.visibility} miles`
 }
 
-function setHourlyFarenheit() {
+function setHourlyFahrenheit() {
     hourArray = []
     hourArraySliced = []
 
@@ -170,7 +170,7 @@ function setHourlyFarenheit() {
     hrTempEight.textContent = `${Math.round(hourArraySliced[7].temp)}°F`
 }
 
-function setDailyFarenheit() {
+function setDailyFahrenheit() {
 
     dayDateOne.textContent = format(parseISO(selectedDataUS.days[0].datetime), 'iii, MMM d')
     dayDateTwo.textContent = format(parseISO(selectedDataUS.days[1].datetime), 'iii, MMM d')
@@ -340,12 +340,12 @@ function setIcon(condition) {
 }
 
 someTitle.addEventListener('click', function() {
-    // setDataFarenheit()
-    // setHourlyFarenheit()
-    // setDailyFarenheit()
+    setDataFahrenheit()
+    setHourlyFahrenheit()
+    setDailyFahrenheit()
 
-    setDataCelcius()
-    setHourlyCelcius()
-    setDailyCelcius()
+    // setDataCelcius()
+    // setHourlyCelcius()
+    // setDailyCelcius()
 })
 
