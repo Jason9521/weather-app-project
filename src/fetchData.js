@@ -2,7 +2,7 @@
 
 // import{}
 
-export {executeSearch, getOptions, selectedDataUS, selectedDataMetric}
+export {executeSearch, getOptions, selectedDataUS, selectedDataMetric, fetchDailyUS, fetchDailyMetric}
 
 const searchBar = document.getElementById('searchBar')
 const searchModal = document.getElementById('searchModal')
@@ -91,3 +91,5 @@ function createModalClose() {
     closeBtn.textContent = 'Close & Try Again'
     searchModal.appendChild(closeBtn)
 }
+
+
