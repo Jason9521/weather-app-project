@@ -11,8 +11,6 @@
 
 body {
     width: 100vw;
-    background-color: white; 
-    /* ^^ ERASE WHEN DONE ^^ */
 }
 
 video {
@@ -65,8 +63,8 @@ video {
     max-width: 70rem;
     margin: 0 auto;
     padding: 1rem 0;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    /* background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px; */
 }
 
 /* TEMP TOGGLE */
@@ -92,7 +90,7 @@ video {
     transition: background 0.2s;
 }
 
-.toggle-farhenheit {
+.toggle-fahrenheit {
     color: black;
     position: relative;
     top: 5px;
@@ -134,9 +132,16 @@ video {
 .forecast-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 17rem;
-    
+}
+
+.forecast-top,
+.forecast-bottom,
+.hourly-forecast {
+    width: 18rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 1rem;
 }
 
 .location {
@@ -209,7 +214,7 @@ video {
 .hourly-forecast {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .hourly-forecast h1 {
@@ -224,7 +229,7 @@ video {
     align-items: center;
     min-width: 10rem;
     width: 15rem;
-    padding-bottom: 1.1rem;
+    padding-bottom: 1.8rem;
     font-size: 1rem;
 }
 
@@ -241,9 +246,13 @@ video {
 
 
 .forecast-text {
+    width: 18rem;
     margin: 1.5rem 0;
     font-size: 0.8rem;
     font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 1rem;
 }
 
 /* PAGE BOTTOM */
@@ -254,8 +263,8 @@ video {
     margin: 2rem auto;
     max-width: 70rem;
     padding-top: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    /* background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px; */
 }
 
 .daily-forecast {
@@ -268,9 +277,13 @@ video {
 }
 
 .daily-forecast h2 {
+    width: fit-content;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    border-radius: 10px;
     text-align: center;
-    text-decoration: underline;
     text-underline-offset: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* DAILY CONTAINER */
@@ -284,6 +297,9 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 1rem;
 }
 
 .daily-container img:nth-child(2) {
@@ -293,14 +309,19 @@ video {
 .daily-container img:nth-child(1) {
     height: 1.2rem;
     width: 1.2rem;
+    margin-right: 0.5rem;
 }
 
 .div-format > * {
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
+}
+
+.rain-chance {
+    background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .daily-container div div {
-    width: 3rem;
+    width: 5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
