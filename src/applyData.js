@@ -3,8 +3,8 @@
 import { format, parseISO } from "date-fns"
 import { formatInTimeZone } from "date-fns-tz"
 import { enUS } from "date-fns/locale"
-import { selectedDataUS, selectedDataMetric } from "./fetchData"
-export { setDataFahrenheit }
+import { selectedDataUS, selectedDataMetric, fetchDailyUS, fetchDailyMetric } from "./fetchData"
+export { displayDefault}
 
 const someTitle = document.getElementById('someTitle')
 
@@ -109,8 +109,8 @@ function setDataFahrenheit() {
     tempurature.textContent = `${Math.round(selectedDataUS.currentConditions.temp)}°F`
     currentImg.src = setIcon(selectedDataUS.currentConditions.icon)
     forecastText.textContent = `${selectedDataUS.currentConditions.conditions}. ${selectedDataUS.description}`
-    sunriseText.textContent = formatInTimeZone(getSunrise, selectedDataUS.timezone, 'h:mm a zzz', {locale: enUS})
-    sunsetText.textContent = formatInTimeZone(getSunset, selectedDataUS.timezone, 'h:mm a zzz', {locale: enUS})
+    sunriseText.textContent = formatInTimeZone(getSunrise, localTime, 'h:mm a', {locale: enUS})
+    sunsetText.textContent = formatInTimeZone(getSunset, localTime, 'h:mm a', {locale: enUS})
     humidity.textContent = `${Math.round(selectedDataUS.currentConditions.humidity)}%`
     dewPoint.textContent = `${Math.round(selectedDataUS.currentConditions.dew)}°F`
     wind.textContent = `${selectedDataUS.currentConditions.windspeed} mph`
@@ -134,6 +134,8 @@ function setHourlyFahrenheit() {
     hourArraySliced = hourArray.slice(timeStart, timeStart + 8) 
     
     hourOne = new Date(`${selectedDataUS.days[0].datetime}T${hourArraySliced[0].datetime}`)
+    console.log(hourOne)
+    console.log(getSunrise)
     hourTwo = new Date(`${selectedDataUS.days[0].datetime}T${hourArraySliced[1].datetime}`)
     hourThree = new Date(`${selectedDataUS.days[0].datetime}T${hourArraySliced[2].datetime}`)
     hourFour = new Date(`${selectedDataUS.days[0].datetime}T${hourArraySliced[3].datetime}`)
@@ -337,6 +339,19 @@ function setIcon(condition) {
     else if (condition == 'snow') {
         return '/images/snowy.png'
     }
+    else if (condition == 'fog') {
+        return '/images/foggy.png'
+    }
+}
+
+// DEFAULT DISPLAY
+
+async function displayDefault() {
+    let responseUS = await fetchDailyUS('Charlotte, North Carolina, US')
+    let responseMetric = await fetchDailyMetric('Charlotte, North Carolina, US')
+    setDataFahrenheit()
+    setHourlyFahrenheit()
+    setDailyFahrenheit()
 }
 
 someTitle.addEventListener('click', function() {
