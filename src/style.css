@@ -39,7 +39,9 @@ video {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 2rem 2rem 4rem;
+    padding: 1rem 2rem;
+    max-width: 80rem;
+    margin: 0 auto;
 }
 
 .page-title h1 {
@@ -49,9 +51,28 @@ video {
     text-shadow: 3px 3px black;
 }
 
+.searchbar {
+    padding-right: 2rem;
+}
+
+.search-input {
+    height: 2rem;
+    width: 15rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+    margin: 0 1rem;
+    padding-left: 1rem;
+}
+
+
 .searchbar input {
     color: black;
     text-shadow: none;
+}
+
+.fa-magnifying-glass:hover {
+    cursor: pointer;
 }
 
 /* PAGE TOP */
@@ -83,6 +104,7 @@ video {
 
 .toggle-fill {
     position: relative;
+    top: -4px;
     width: 4rem;
     height: 2rem;
     border-radius: 20px;
@@ -132,16 +154,17 @@ video {
 .forecast-container {
     display: flex;
     flex-direction: column;
-    width: 17rem;
+    width: 21rem;
 }
 
 .forecast-top,
 .forecast-bottom,
 .hourly-forecast {
-    width: 18rem;
+    /* width: 23rem; */
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     padding: 1rem;
+    box-shadow: 5px 5px 10px black;
 }
 
 .location {
@@ -228,7 +251,7 @@ video {
     justify-content: space-evenly;
     align-items: center;
     min-width: 10rem;
-    width: 15rem;
+    width: 21rem;
     padding-bottom: 1.8rem;
     font-size: 1rem;
 }
@@ -246,13 +269,14 @@ video {
 
 
 .forecast-text {
-    width: 18rem;
+    width: 21rem;
     margin: 1.5rem 0;
     font-size: 0.8rem;
     font-weight: 700;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     padding: 1rem;
+    box-shadow: 5px 5px 10px black;
 }
 
 /* PAGE BOTTOM */
@@ -300,6 +324,7 @@ video {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     padding: 1rem;
+    box-shadow: 5px 5px 10px black;
 }
 
 .daily-container img:nth-child(2) {
@@ -316,8 +341,13 @@ video {
     padding-bottom: 1rem;
 }
 
+.div-format h6 {
+    font-size: 0.8rem;
+}
+
 .rain-chance {
     background-color: rgba(0, 0, 0, 0.2) !important;
+    box-shadow: none !important;
 }
 
 .daily-container div div {
