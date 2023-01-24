@@ -1,6 +1,7 @@
 "use strict"
 
-import { getOptions } from "./fetchData"
+import { getOptions, selectedDataUS, selectedDataMetric, isMetric } from "./fetchData"
+import {setDataFahrenheit, setHourlyFahrenheit, setDailyFahrenheit, setDataCelcius, setHourlyCelcius, setDailyCelcius} from "./applyData"
 export {searchBtn, tempToggle}
 
 const searchBtn = document.getElementById('searchBtn')
@@ -12,9 +13,12 @@ searchBtn.addEventListener('click', () => {
 
 tempToggle.addEventListener('click', () => {
     if (tempToggle.checked) {
-        // Display Celcius Data
+        setDataCelcius()
+        setHourlyCelcius()
+        setDailyCelcius()
     } else {
-        // Display Farhenheit Data
+        setDataFahrenheit()
+        setHourlyFahrenheit()
+        setDailyFahrenheit()
     }
 })
-
