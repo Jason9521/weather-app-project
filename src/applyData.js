@@ -4,9 +4,7 @@ import { format, parseISO } from "date-fns"
 import { formatInTimeZone } from "date-fns-tz"
 import { enUS } from "date-fns/locale"
 import { selectedDataUS, selectedDataMetric, fetchDailyUS, fetchDailyMetric } from "./fetchData"
-export { displayDefault}
-
-const someTitle = document.getElementById('someTitle')
+export { displayDefault, setDataFahrenheit, setHourlyFahrenheit, setDailyFahrenheit, setDataCelcius, setHourlyCelcius, setDailyCelcius }
 
 const getLocation = document.getElementById('location')
 const date = document.getElementById('date')
@@ -72,6 +70,14 @@ const forecastFive = document.getElementById('forecastFive')
 const forecastSix = document.getElementById('forecastSix')
 const forecastSeven = document.getElementById('forecastSeven')
 
+const precipOne = document.getElementById('precipOne')
+const precipTwo = document.getElementById('precipTwo')
+const precipThree = document.getElementById('precipThree')
+const precipFour = document.getElementById('precipFour')
+const precipFive = document.getElementById('precipFive')
+const precipSix = document.getElementById('precipSix')
+const precipSeven = document.getElementById('precipSeven')
+
 const dayRainOne = document.getElementById('dayRainOne')
 const dayRainTwo = document.getElementById('dayRainTwo')
 const dayRainThree = document.getElementById('dayRainThree')
@@ -86,7 +92,6 @@ let timeStart
 let hourArray
 let hourArraySliced
 let localTime = Intl.DateTimeFormat().resolvedOptions().timeZone
-
 
 let hourOne
 let hourTwo
@@ -134,8 +139,6 @@ function setHourlyFahrenheit() {
     hourArraySliced = hourArray.slice(timeStart, timeStart + 8) 
     
     hourOne = new Date(`${selectedDataUS.days[0].datetime}T${hourArraySliced[0].datetime}`)
-    console.log(hourOne)
-    console.log(getSunrise)
     hourTwo = new Date(`${selectedDataUS.days[0].datetime}T${hourArraySliced[1].datetime}`)
     hourThree = new Date(`${selectedDataUS.days[0].datetime}T${hourArraySliced[2].datetime}`)
     hourFour = new Date(`${selectedDataUS.days[0].datetime}T${hourArraySliced[3].datetime}`)
@@ -174,37 +177,45 @@ function setHourlyFahrenheit() {
 
 function setDailyFahrenheit() {
 
-    dayDateOne.textContent = format(parseISO(selectedDataUS.days[0].datetime), 'iii, MMM d')
-    dayDateTwo.textContent = format(parseISO(selectedDataUS.days[1].datetime), 'iii, MMM d')
-    dayDateThree.textContent = format(parseISO(selectedDataUS.days[2].datetime), 'iii, MMM d')
-    dayDateFour.textContent = format(parseISO(selectedDataUS.days[3].datetime), 'iii, MMM d')
-    dayDateFive.textContent = format(parseISO(selectedDataUS.days[4].datetime), 'iii, MMM d')
-    dayDateSix.textContent = format(parseISO(selectedDataUS.days[5].datetime), 'iii, MMM d')
-    dayDateSeven.textContent = format(parseISO(selectedDataUS.days[6].datetime), 'iii, MMM d')
+    dayDateOne.textContent = format(parseISO(selectedDataUS.days[1].datetime), 'iii, MMM d')
+    dayDateTwo.textContent = format(parseISO(selectedDataUS.days[2].datetime), 'iii, MMM d')
+    dayDateThree.textContent = format(parseISO(selectedDataUS.days[3].datetime), 'iii, MMM d')
+    dayDateFour.textContent = format(parseISO(selectedDataUS.days[4].datetime), 'iii, MMM d')
+    dayDateFive.textContent = format(parseISO(selectedDataUS.days[5].datetime), 'iii, MMM d')
+    dayDateSix.textContent = format(parseISO(selectedDataUS.days[6].datetime), 'iii, MMM d')
+    dayDateSeven.textContent = format(parseISO(selectedDataUS.days[7].datetime), 'iii, MMM d')
 
-    dayImgOne.src = setIcon(selectedDataUS.days[0].icon)
-    dayImgTwo.src = setIcon(selectedDataUS.days[1].icon)
-    dayImgThree.src = setIcon(selectedDataUS.days[2].icon)
-    dayImgFour.src = setIcon(selectedDataUS.days[3].icon)
-    dayImgFive.src = setIcon(selectedDataUS.days[4].icon)
-    dayImgSix.src = setIcon(selectedDataUS.days[5].icon)
-    dayImgSeven.src = setIcon(selectedDataUS.days[6].icon)
+    dayImgOne.src = setIcon(selectedDataUS.days[1].icon)
+    dayImgTwo.src = setIcon(selectedDataUS.days[2].icon)
+    dayImgThree.src = setIcon(selectedDataUS.days[3].icon)
+    dayImgFour.src = setIcon(selectedDataUS.days[4].icon)
+    dayImgFive.src = setIcon(selectedDataUS.days[5].icon)
+    dayImgSix.src = setIcon(selectedDataUS.days[6].icon)
+    dayImgSeven.src = setIcon(selectedDataUS.days[7].icon)
 
-    forecastOne.textContent = `${Math.round(selectedDataUS.days[0].tempmax)}°F / ${Math.round(selectedDataUS.days[0].tempmin)}°F`
-    forecastTwo.textContent = `${Math.round(selectedDataUS.days[1].tempmax)}°F / ${Math.round(selectedDataUS.days[1].tempmin)}°F`
-    forecastThree.textContent = `${Math.round(selectedDataUS.days[2].tempmax)}°F / ${Math.round(selectedDataUS.days[2].tempmin)}°F`
-    forecastFour.textContent = `${Math.round(selectedDataUS.days[3].tempmax)}°F / ${Math.round(selectedDataUS.days[3].tempmin)}°F`
-    forecastFive.textContent = `${Math.round(selectedDataUS.days[4].tempmax)}°F / ${Math.round(selectedDataUS.days[4].tempmin)}°F`
-    forecastSix.textContent = `${Math.round(selectedDataUS.days[5].tempmax)}°F / ${Math.round(selectedDataUS.days[5].tempmin)}°F`
-    forecastSeven.textContent = `${Math.round(selectedDataUS.days[6].tempmax)}°F / ${Math.round(selectedDataUS.days[6].tempmin)}°F`
+    forecastOne.textContent = `${Math.round(selectedDataUS.days[1].tempmax)}°F / ${Math.round(selectedDataUS.days[1].tempmin)}°F`
+    forecastTwo.textContent = `${Math.round(selectedDataUS.days[2].tempmax)}°F / ${Math.round(selectedDataUS.days[2].tempmin)}°F`
+    forecastThree.textContent = `${Math.round(selectedDataUS.days[3].tempmax)}°F / ${Math.round(selectedDataUS.days[3].tempmin)}°F`
+    forecastFour.textContent = `${Math.round(selectedDataUS.days[4].tempmax)}°F / ${Math.round(selectedDataUS.days[4].tempmin)}°F`
+    forecastFive.textContent = `${Math.round(selectedDataUS.days[5].tempmax)}°F / ${Math.round(selectedDataUS.days[5].tempmin)}°F`
+    forecastSix.textContent = `${Math.round(selectedDataUS.days[6].tempmax)}°F / ${Math.round(selectedDataUS.days[6].tempmin)}°F`
+    forecastSeven.textContent = `${Math.round(selectedDataUS.days[7].tempmax)}°F / ${Math.round(selectedDataUS.days[7].tempmin)}°F`
+ 
+    precipOne.src = setPrecipType(selectedDataUS.days[1].preciptype)
+    precipTwo.src = setPrecipType(selectedDataUS.days[2].preciptype)
+    precipThree.src = setPrecipType(selectedDataUS.days[3].preciptype)
+    precipFour.src = setPrecipType(selectedDataUS.days[4].preciptype)
+    precipFive.src = setPrecipType(selectedDataUS.days[5].preciptype)
+    precipSix.src = setPrecipType(selectedDataUS.days[6].preciptype)
+    precipSeven.src = setPrecipType(selectedDataUS.days[7].preciptype)
 
-    dayRainOne.textContent = `${selectedDataUS.days[0].precipprob}%`
-    dayRainTwo.textContent = `${selectedDataUS.days[1].precipprob}%`
-    dayRainThree.textContent = `${selectedDataUS.days[2].precipprob}%`
-    dayRainFour.textContent = `${selectedDataUS.days[3].precipprob}%`
-    dayRainFive.textContent = `${selectedDataUS.days[4].precipprob}%`
-    dayRainSix.textContent = `${selectedDataUS.days[5].precipprob}%`
-    dayRainSeven.textContent = `${selectedDataUS.days[6].precipprob}%`
+    dayRainOne.textContent = `${selectedDataUS.days[1].precipprob}%`
+    dayRainTwo.textContent = `${selectedDataUS.days[2].precipprob}%`
+    dayRainThree.textContent = `${selectedDataUS.days[3].precipprob}%`
+    dayRainFour.textContent = `${selectedDataUS.days[4].precipprob}%`
+    dayRainFive.textContent = `${selectedDataUS.days[5].precipprob}%`
+    dayRainSix.textContent = `${selectedDataUS.days[6].precipprob}%`
+    dayRainSeven.textContent = `${selectedDataUS.days[7].precipprob}%`
 }
 
 // CELCIUS (METRIC)
@@ -219,8 +230,8 @@ function setDataCelcius() {
     tempurature.textContent = `${Math.round(selectedDataMetric.currentConditions.temp)}°C`
     currentImg.src = setIcon(selectedDataMetric.currentConditions.icon)
     forecastText.textContent = `${selectedDataMetric.currentConditions.conditions}. ${selectedDataMetric.description}`
-    sunriseText.textContent = formatInTimeZone(getSunrise, localTime, 'h:mm a zzz', {locale: enUS})
-    sunsetText.textContent = formatInTimeZone(getSunset, localTime, 'h:mm a zzz', {locale: enUS} )
+    sunriseText.textContent = formatInTimeZone(getSunrise, localTime, 'h:mm a', {locale: enUS})
+    sunsetText.textContent = formatInTimeZone(getSunset, localTime, 'h:mm a', {locale: enUS} )
     humidity.textContent = `${Math.round(selectedDataMetric.currentConditions.humidity)}%`
     dewPoint.textContent = `${Math.round(selectedDataMetric.currentConditions.dew)}°C`
     wind.textContent = `${selectedDataMetric.currentConditions.windspeed} km/h`
@@ -282,37 +293,45 @@ function setHourlyCelcius() {
 
 function setDailyCelcius() {
 
-    dayDateOne.textContent = format(parseISO(selectedDataMetric.days[0].datetime), 'iii, MMM d')
-    dayDateTwo.textContent = format(parseISO(selectedDataMetric.days[1].datetime), 'iii, MMM d')
-    dayDateThree.textContent = format(parseISO(selectedDataMetric.days[2].datetime), 'iii, MMM d')
-    dayDateFour.textContent = format(parseISO(selectedDataMetric.days[3].datetime), 'iii, MMM d')
-    dayDateFive.textContent = format(parseISO(selectedDataMetric.days[4].datetime), 'iii, MMM d')
-    dayDateSix.textContent = format(parseISO(selectedDataMetric.days[5].datetime), 'iii, MMM d')
-    dayDateSeven.textContent = format(parseISO(selectedDataMetric.days[6].datetime), 'iii, MMM d')
+    dayDateOne.textContent = format(parseISO(selectedDataMetric.days[1].datetime), 'iii, MMM d')
+    dayDateTwo.textContent = format(parseISO(selectedDataMetric.days[2].datetime), 'iii, MMM d')
+    dayDateThree.textContent = format(parseISO(selectedDataMetric.days[3].datetime), 'iii, MMM d')
+    dayDateFour.textContent = format(parseISO(selectedDataMetric.days[4].datetime), 'iii, MMM d')
+    dayDateFive.textContent = format(parseISO(selectedDataMetric.days[5].datetime), 'iii, MMM d')
+    dayDateSix.textContent = format(parseISO(selectedDataMetric.days[6].datetime), 'iii, MMM d')
+    dayDateSeven.textContent = format(parseISO(selectedDataMetric.days[7].datetime), 'iii, MMM d')
 
-    dayImgOne.src = setIcon(selectedDataMetric.days[0].icon)
-    dayImgTwo.src = setIcon(selectedDataMetric.days[1].icon)
-    dayImgThree.src = setIcon(selectedDataMetric.days[2].icon)
-    dayImgFour.src = setIcon(selectedDataMetric.days[3].icon)
-    dayImgFive.src = setIcon(selectedDataMetric.days[4].icon)
-    dayImgSix.src = setIcon(selectedDataMetric.days[5].icon)
-    dayImgSeven.src = setIcon(selectedDataMetric.days[6].icon)
+    dayImgOne.src = setIcon(selectedDataMetric.days[1].icon)
+    dayImgTwo.src = setIcon(selectedDataMetric.days[2].icon)
+    dayImgThree.src = setIcon(selectedDataMetric.days[3].icon)
+    dayImgFour.src = setIcon(selectedDataMetric.days[4].icon)
+    dayImgFive.src = setIcon(selectedDataMetric.days[5].icon)
+    dayImgSix.src = setIcon(selectedDataMetric.days[6].icon)
+    dayImgSeven.src = setIcon(selectedDataMetric.days[7].icon)
 
-    forecastOne.textContent = `${Math.round(selectedDataMetric.days[0].tempmax)}°C / ${Math.round(selectedDataMetric.days[0].tempmin)}°C`
-    forecastTwo.textContent = `${Math.round(selectedDataMetric.days[1].tempmax)}°C / ${Math.round(selectedDataMetric.days[1].tempmin)}°C`
-    forecastThree.textContent = `${Math.round(selectedDataMetric.days[2].tempmax)}°C / ${Math.round(selectedDataMetric.days[2].tempmin)}°C`
-    forecastFour.textContent = `${Math.round(selectedDataMetric.days[3].tempmax)}°C / ${Math.round(selectedDataMetric.days[3].tempmin)}°C`
-    forecastFive.textContent = `${Math.round(selectedDataMetric.days[4].tempmax)}°C / ${Math.round(selectedDataMetric.days[4].tempmin)}°C`
-    forecastSix.textContent = `${Math.round(selectedDataMetric.days[5].tempmax)}°C / ${Math.round(selectedDataMetric.days[5].tempmin)}°C`
-    forecastSeven.textContent = `${Math.round(selectedDataMetric.days[6].tempmax)}°C / ${Math.round(selectedDataMetric.days[6].tempmin)}°C`
+    forecastOne.textContent = `${Math.round(selectedDataMetric.days[1].tempmax)}°C / ${Math.round(selectedDataMetric.days[1].tempmin)}°C`
+    forecastTwo.textContent = `${Math.round(selectedDataMetric.days[2].tempmax)}°C / ${Math.round(selectedDataMetric.days[2].tempmin)}°C`
+    forecastThree.textContent = `${Math.round(selectedDataMetric.days[3].tempmax)}°C / ${Math.round(selectedDataMetric.days[3].tempmin)}°C`
+    forecastFour.textContent = `${Math.round(selectedDataMetric.days[4].tempmax)}°C / ${Math.round(selectedDataMetric.days[4].tempmin)}°C`
+    forecastFive.textContent = `${Math.round(selectedDataMetric.days[5].tempmax)}°C / ${Math.round(selectedDataMetric.days[5].tempmin)}°C`
+    forecastSix.textContent = `${Math.round(selectedDataMetric.days[6].tempmax)}°C / ${Math.round(selectedDataMetric.days[6].tempmin)}°C`
+    forecastSeven.textContent = `${Math.round(selectedDataMetric.days[7].tempmax)}°C / ${Math.round(selectedDataMetric.days[7].tempmin)}°C`
 
-    dayRainOne.textContent = `${selectedDataMetric.days[0].precipprob}%`
-    dayRainTwo.textContent = `${selectedDataMetric.days[1].precipprob}%`
-    dayRainThree.textContent = `${selectedDataMetric.days[2].precipprob}%`
-    dayRainFour.textContent = `${selectedDataMetric.days[3].precipprob}%`
-    dayRainFive.textContent = `${selectedDataMetric.days[4].precipprob}%`
-    dayRainSix.textContent = `${selectedDataMetric.days[5].precipprob}%`
-    dayRainSeven.textContent = `${selectedDataMetric.days[6].precipprob}%`
+    precipOne.src = setPrecipType(selectedDataUS.days[1].preciptype)
+    precipTwo.src = setPrecipType(selectedDataUS.days[2].preciptype)
+    precipThree.src = setPrecipType(selectedDataUS.days[3].preciptype)
+    precipFour.src = setPrecipType(selectedDataUS.days[4].preciptype)
+    precipFive.src = setPrecipType(selectedDataUS.days[5].preciptype)
+    precipSix.src = setPrecipType(selectedDataUS.days[6].preciptype)
+    precipSeven.src = setPrecipType(selectedDataUS.days[7].preciptype)
+
+    dayRainOne.textContent = `${selectedDataMetric.days[1].precipprob}%`
+    dayRainTwo.textContent = `${selectedDataMetric.days[2].precipprob}%`
+    dayRainThree.textContent = `${selectedDataMetric.days[3].precipprob}%`
+    dayRainFour.textContent = `${selectedDataMetric.days[4].precipprob}%`
+    dayRainFive.textContent = `${selectedDataMetric.days[5].precipprob}%`
+    dayRainSix.textContent = `${selectedDataMetric.days[6].precipprob}%`
+    dayRainSeven.textContent = `${selectedDataMetric.days[7].precipprob}%`
 }
 
 // MISCELLANEOUS FUNCTIONS
@@ -344,23 +363,25 @@ function setIcon(condition) {
     }
 }
 
-// DEFAULT DISPLAY
+function setPrecipType(target) {
+
+    if (target == null ) {
+        return '/images/water.png'
+    } else if (target.includes('snow')) {
+        return '/images/snowflake.png'
+    } else {
+        return '/images/water.png'
+    }
+}
 
 async function displayDefault() {
-    let responseUS = await fetchDailyUS('Charlotte, North Carolina, US')
-    let responseMetric = await fetchDailyMetric('Charlotte, North Carolina, US')
+
+    await fetchDailyUS('Charlotte, North Carolina, US')
+    await fetchDailyMetric('Charlotte, North Carolina, US')
+
     setDataFahrenheit()
     setHourlyFahrenheit()
     setDailyFahrenheit()
 }
 
-someTitle.addEventListener('click', function() {
-    setDataFahrenheit()
-    setHourlyFahrenheit()
-    setDailyFahrenheit()
-
-    // setDataCelcius()
-    // setHourlyCelcius()
-    // setDailyCelcius()
-})
 
