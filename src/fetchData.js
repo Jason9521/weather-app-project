@@ -57,7 +57,8 @@ function createOption(option) {
         selectedLocation = option
         searchModal.replaceChildren()
         searchModal.close()
-        displayData()  
+        displayData() 
+        console.log(selectedDataUS) 
     }
     searchModal.appendChild(optionBtn)
 }
