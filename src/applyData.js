@@ -209,13 +209,13 @@ function setDailyFahrenheit() {
     precipSix.src = setPrecipType(selectedDataUS.days[6].preciptype)
     precipSeven.src = setPrecipType(selectedDataUS.days[7].preciptype)
 
-    dayRainOne.textContent = `${selectedDataUS.days[1].precipprob}%`
-    dayRainTwo.textContent = `${selectedDataUS.days[2].precipprob}%`
-    dayRainThree.textContent = `${selectedDataUS.days[3].precipprob}%`
-    dayRainFour.textContent = `${selectedDataUS.days[4].precipprob}%`
-    dayRainFive.textContent = `${selectedDataUS.days[5].precipprob}%`
-    dayRainSix.textContent = `${selectedDataUS.days[6].precipprob}%`
-    dayRainSeven.textContent = `${selectedDataUS.days[7].precipprob}%`
+    dayRainOne.textContent = `${Math.round(selectedDataUS.days[1].precipprob)}%`
+    dayRainTwo.textContent = `${Math.round(selectedDataUS.days[2].precipprob)}%`
+    dayRainThree.textContent = `${Math.round(selectedDataUS.days[3].precipprob)}%`
+    dayRainFour.textContent = `${Math.round(selectedDataUS.days[4].precipprob)}%`
+    dayRainFive.textContent = `${Math.round(selectedDataUS.days[5].precipprob)}%`
+    dayRainSix.textContent = `${Math.round(selectedDataUS.days[6].precipprob)}%`
+    dayRainSeven.textContent = `${Math.round(selectedDataUS.days[7].precipprob)}%`
 }
 
 // CELCIUS (METRIC)
@@ -235,7 +235,7 @@ function setDataCelcius() {
     humidity.textContent = `${Math.round(selectedDataMetric.currentConditions.humidity)}%`
     dewPoint.textContent = `${Math.round(selectedDataMetric.currentConditions.dew)}°C`
     wind.textContent = `${selectedDataMetric.currentConditions.windspeed} km/h`
-    visibility.textContent = `${selectedDataMetric.currentConditions.visibility} km`
+    visibility.textContent = `${isNull(selectedDataMetric.currentConditions.visibility)} km`
 }
 
 function setHourlyCelcius() {
@@ -325,13 +325,13 @@ function setDailyCelcius() {
     precipSix.src = setPrecipType(selectedDataUS.days[6].preciptype)
     precipSeven.src = setPrecipType(selectedDataUS.days[7].preciptype)
 
-    dayRainOne.textContent = `${selectedDataMetric.days[1].precipprob}%`
-    dayRainTwo.textContent = `${selectedDataMetric.days[2].precipprob}%`
-    dayRainThree.textContent = `${selectedDataMetric.days[3].precipprob}%`
-    dayRainFour.textContent = `${selectedDataMetric.days[4].precipprob}%`
-    dayRainFive.textContent = `${selectedDataMetric.days[5].precipprob}%`
-    dayRainSix.textContent = `${selectedDataMetric.days[6].precipprob}%`
-    dayRainSeven.textContent = `${selectedDataMetric.days[7].precipprob}%`
+    dayRainOne.textContent = `${Math.round(selectedDataMetric.days[1].precipprob)}%`
+    dayRainTwo.textContent = `${Math.round(selectedDataMetric.days[2].precipprob)}%`
+    dayRainThree.textContent = `${Math.round(selectedDataMetric.days[3].precipprob)}%`
+    dayRainFour.textContent = `${Math.round(selectedDataMetric.days[4].precipprob)}%`
+    dayRainFive.textContent = `${Math.round(selectedDataMetric.days[5].precipprob)}%`
+    dayRainSix.textContent = `${Math.round(selectedDataMetric.days[6].precipprob)}%`
+    dayRainSeven.textContent = `${Math.round(selectedDataMetric.days[7].precipprob)}%`
 }
 
 // MISCELLANEOUS FUNCTIONS
@@ -372,6 +372,12 @@ function setPrecipType(target) {
     } else {
         return '/images/water.png'
     }
+}
+
+function isNull(target) {
+    if (target == null) {
+        return "0"
+    } else {}
 }
 
 async function displayDefault() {
