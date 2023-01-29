@@ -57,8 +57,7 @@ function createOption(option) {
         selectedLocation = option
         searchModal.replaceChildren()
         searchModal.close()
-        displayData() 
-        console.log(selectedDataUS) 
+        displayData()
     }
     searchModal.appendChild(optionBtn)
 }
@@ -102,5 +101,3 @@ async function displayData() {
             setDailyFahrenheit()
         }
 }
-
-
