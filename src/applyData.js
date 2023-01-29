@@ -15,6 +15,7 @@ const sunsetText = document.getElementById('sunsetText')
 const humidity = document.getElementById('humidity')
 const dewPoint = document.getElementById('dewPoint')
 const wind = document.getElementById('wind')
+const windDir = document.getElementById('windDir')
 const visibility = document.getElementById('visibility')
 
 const hrTextOne = document.getElementById('hrTextOne')
@@ -118,7 +119,7 @@ function setDataFahrenheit() {
     sunsetText.textContent = formatInTimeZone(getSunset, localTime, 'h:mm a', {locale: enUS})
     humidity.textContent = `${Math.round(selectedDataUS.currentConditions.humidity)}%`
     dewPoint.textContent = `${Math.round(selectedDataUS.currentConditions.dew)}°F`
-    wind.textContent = `${selectedDataUS.currentConditions.windspeed} mph`
+    wind.textContent = `${selectedDataUS.currentConditions.windspeed} mph ${setWindDirection(selectedDataUS.currentConditions.winddir)}`
     visibility.textContent = `${selectedDataUS.currentConditions.visibility} miles`
 }
 
@@ -234,8 +235,8 @@ function setDataCelcius() {
     sunsetText.textContent = formatInTimeZone(getSunset, localTime, 'h:mm a', {locale: enUS} )
     humidity.textContent = `${Math.round(selectedDataMetric.currentConditions.humidity)}%`
     dewPoint.textContent = `${Math.round(selectedDataMetric.currentConditions.dew)}°C`
-    wind.textContent = `${selectedDataMetric.currentConditions.windspeed} km/h`
-    visibility.textContent = `${isNull(selectedDataMetric.currentConditions.visibility)} km`
+    wind.textContent = `${selectedDataMetric.currentConditions.windspeed} km/h ${setWindDirection(selectedDataMetric.currentConditions.winddir)}`
+    visibility.textContent = `${selectedDataMetric.currentConditions.visibility} km`
 }
 
 function setHourlyCelcius() {
@@ -363,6 +364,26 @@ function setIcon(condition) {
     }
 }
 
+function setWindDirection(target) {
+    if (target == 0 || target == 360) {
+        return 'N'
+    } else if (target > 0 && target < 90) {
+        return 'NE'
+    } else if (target == 90) {
+        return 'E'
+    } else if (target > 90 && target < 180) {
+        return 'SE'
+    } else if (target == 180) {
+        return "S"
+    } else if (target > 180 && target < 270) {
+        return 'SW'
+    } else if (target == 270) {
+        return 'W'
+    } else if (target > 270 && target < 360) {
+        return 'NW'
+    }
+}
+
 function setPrecipType(target) {
 
     if (target == null ) {
@@ -374,12 +395,6 @@ function setPrecipType(target) {
     }
 }
 
-function isNull(target) {
-    if (target == null) {
-        return "0"
-    } else {}
-}
-
 async function displayDefault() {
 
     await fetchDailyUS('Charlotte, North Carolina, US')
@@ -389,5 +404,3 @@ async function displayDefault() {
     setHourlyFahrenheit()
     setDailyFahrenheit()
 }
-
-
