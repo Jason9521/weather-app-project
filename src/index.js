@@ -5,10 +5,3 @@ import { searchBtn, tempToggle } from "./events"
 import { setDataFahrenheit, displayDefault } from "./applyData"
 
 displayDefault()
-
-
-
-
-
-
-
