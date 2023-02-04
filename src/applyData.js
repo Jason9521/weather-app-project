@@ -339,28 +339,28 @@ function setDailyCelcius() {
 
 function setIcon(condition) {
     if (condition == 'clear-day') {
-        return './images/sunny.png'
+        return '/images/sunny.png'
     }
     else if (condition == 'clear-night') {
-        return './images/crescent-moon.png'
+        return '/images/crescent-moon.png'
     }
     else if (condition == 'partly-cloudy-day') {
-        return './images/cloudy-day.png'
+        return '/images/cloudy-day.png'
     }
     else if (condition == 'partly-cloudy-night') {
-        return './images/cloudy-night.png'
+        return '/images/cloudy-night.png'
     }
     else if (condition == 'cloudy') {
-        return './images/clouds.png'
+        return '/images/clouds.png'
     }
     else if(condition == 'rain') {
-        return './images/raining.png'
+        return '/images/raining.png'
     }
     else if (condition == 'snow') {
-        return './images/snowy.png'
+        return '/images/snowy.png'
     }
     else if (condition == 'fog') {
-        return './images/foggy.png'
+        return '/images/foggy.png'
     }
 }
 
