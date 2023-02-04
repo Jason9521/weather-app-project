@@ -8,7 +8,7 @@
 }
 
 body {
-    width: 100vw;
+    width: 100%;
 }
 
 video {
@@ -76,11 +76,12 @@ video {
 
 .page-top {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-bottom: 2rem;
+    width: 90%;
     max-width: 70rem;
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: 1rem 0 3rem;
 }
 
 /* TEMP TOGGLE */
@@ -149,7 +150,9 @@ video {
 .forecast-container {
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    justify-content: space-between;
+    height: inherit;
+    width: 45%;
     max-width: 480px;
 }
 
@@ -186,10 +189,22 @@ video {
     margin-left: 1.5rem;
 }
 
+.forecast-text {
+    height: 5rem;
+    width: 40vw;
+    max-width: 480px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
 .forecast-bottom {
     display: flex;
     flex-direction: column;
-    padding: 1rem ;
+    padding: 2rem 1rem;
 }
 
 .forecast-bottom h1 {
@@ -230,14 +245,17 @@ video {
 /* HOURLY FORECAST */
 
 .hourly-forecast {
-    width: 40vw;
+    height: 100%;
+    width: 45%;
     max-width: 480px;
 }
 
 .hourly-forecast h1 {
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
+    text-decoration: underline 3px;
+    text-underline-offset: 0.3rem;
 }
 
 .hourly-container {
@@ -252,7 +270,7 @@ video {
     align-items: center;
     min-width: 7rem;
     width: 80%;
-    padding-bottom: 1.8rem;
+    padding-bottom: 2.3rem;
     font-size: 1rem;
 }
 
@@ -266,55 +284,25 @@ video {
     padding-bottom: 0 !important;
 }
 
-.forecast-text {
-    width: 40vw;
-    max-width: 480px;
-    margin: 1.5rem 0;
-    font-size: 0.8rem;
-    font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 5px 5px 10px black;
-}
-
-/* PAGE BOTTOM */
-
-.page-bottom {
-    height: 0;
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem auto;
-    padding-top: 0.5rem;
-}
-
-.daily-forecast {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 12rem;
-    max-width: 70rem;
-    margin: 0 auto;
-}
-
 /* DAILY CONTAINER */
 
 .daily-container {
     display: flex;
     justify-content: space-evenly;
-    padding: 0 2rem;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 70rem;
+    background-color: rgba(0, 0, 0, 0.6); 
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
 }
 
 .daily-container div {
-    width: 11vw;
+    width: 12.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    padding: 0.5rem;
-    margin: 0 0.5rem;
-    box-shadow: 5px 5px 10px black;
+    padding: 1rem 0;
 }
 
 .daily-container img:nth-child(2) {
@@ -342,6 +330,7 @@ video {
     flex-direction: row;
     justify-content: space-around;
     background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
     box-shadow: none;
     max-width: 100px;
 }
@@ -465,7 +454,7 @@ video {
     }
 
     .daily-container {
-        padding: 0;
+        padding: 1rem;
     }
 
     .daily-container div {
@@ -491,7 +480,7 @@ video {
 @media only screen and (max-width: 700px) {
 
     .page-title {
-        padding: 1rem;
+        padding: 0rem 1rem;
     }
 
     .page-title h1 {
@@ -552,6 +541,10 @@ video {
         font-size: 3vw;
     }
 
+    .page-top {
+        padding: 1rem 0 1.5rem;
+    }
+
     .location,
     .date {
         font-size: 2vw;
@@ -566,7 +559,7 @@ video {
     }
 
     .forecast-text {
-        font-size: 1.5vw;
+        font-size: 2vw;
     }
 
     .sunset-info img,
@@ -603,6 +596,10 @@ video {
         margin-bottom: 3rem;
     }
 
+    .hourly-forecast div {
+        padding-bottom: 2.2rem;
+    }
+
     .hourly-forecast h4 {
         font-size: 2vw;
     }
@@ -611,18 +608,19 @@ video {
         height: 3.5vw;
     }
 
-    .page-bottom {
-        margin-top: 0.8rem auto;
+    .daily-container {
+        padding: 0.5rem;
     }
 
     .daily-container div {
         height: 8rem;
-        padding: 0.25rem;
+        width: 10%;
         margin: 0 0.5rem;
+        padding: 0;
     }
 
     .daily-container div h5 {
-        font-size: 1vw;
+        font-size: 1.5vw;
         padding-top: 0.5rem;
     }
 
@@ -638,7 +636,7 @@ video {
     }
 
     .daily-container div h6 {
-        font-size: 1vw;
+        font-size: 1.5vw;
     }
 
     .daily-container > div > div {
