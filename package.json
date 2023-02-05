@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack" 
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "eslint": "^8.31.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.8.3",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
