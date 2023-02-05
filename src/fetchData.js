@@ -17,7 +17,7 @@ let selectedLocation
 async function getOptions() {
     
     try {
-        let response = await fetch (`http://api.openweathermap.org/geo/1.0/direct?q=${searchBar.value}&limit=5&appid=b553abef78d7459ae8fd13980b3e30b0`, {mode: 'cors'})
+        let response = await fetch (`https://api.openweathermap.org/geo/1.0/direct?q=${searchBar.value}&limit=5&appid=b553abef78d7459ae8fd13980b3e30b0`, {mode: 'cors'})
         let fetchedData = await response.json()
 
         createModalHeader()
