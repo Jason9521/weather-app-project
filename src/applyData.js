@@ -4,6 +4,16 @@ import { format, parseISO } from "date-fns"
 import { formatInTimeZone } from "date-fns-tz"
 import { enUS } from "date-fns/locale"
 import { selectedDataUS, selectedDataMetric, fetchDailyUS, fetchDailyMetric } from "./fetchData"
+import clouds from './images/clouds.png'
+import cloudyDay from './images/cloudy-day.png'
+import cloudyNight from './images/cloudy-night.png'
+import crescentMoon from './images/crescent-moon.png'
+import foggy from './images/foggy.png'
+import raining from './images/raining.png'
+import snowFlake from './images/snowflake.png'
+import snowy from './images/snowy.png'
+import sunny from './images/sunny.png'
+import waterDrops from './images/water.png'
 export { displayDefault, setDataFahrenheit, setHourlyFahrenheit, setDailyFahrenheit, setDataCelcius, setHourlyCelcius, setDailyCelcius }
 
 const getLocation = document.getElementById('location')
@@ -339,28 +349,28 @@ function setDailyCelcius() {
 
 function setIcon(condition) {
     if (condition == 'clear-day') {
-        return 'images/sunny.png'
+        return sunny
     }
     else if (condition == 'clear-night') {
-        return 'images/crescent-moon.png'
+        return crescentMoon
     }
     else if (condition == 'partly-cloudy-day') {
-        return 'images/cloudy-day.png'
+        return cloudyDay
     }
     else if (condition == 'partly-cloudy-night') {
-        return 'images/cloudy-night.png'
+        return cloudyNight
     }
     else if (condition == 'cloudy') {
-        return 'images/clouds.png'
+        return clouds
     }
     else if(condition == 'rain') {
-        return 'images/raining.png'
+        return raining
     }
     else if (condition == 'snow') {
-        return 'images/snowy.png'
+        return snowy
     }
     else if (condition == 'fog') {
-        return 'images/foggy.png'
+        return foggy
     }
 }
 
@@ -387,11 +397,11 @@ function setWindDirection(target) {
 function setPrecipType(target) {
 
     if (target == null ) {
-        return 'images/water.png'
+        return waterDrops
     } else if (target.includes('snow')) {
-        return 'images/snowflake.png'
+        return snowFlake
     } else {
-        return 'images/water.png'
+        return waterDrops
     }
 }
 
