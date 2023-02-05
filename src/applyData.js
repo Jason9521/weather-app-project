@@ -339,28 +339,28 @@ function setDailyCelcius() {
 
 function setIcon(condition) {
     if (condition == 'clear-day') {
-        return 'https://jason9521.github.io/weather-app-project/images/sunny.png'
+        return 'images/sunny.png'
     }
     else if (condition == 'clear-night') {
-        return 'https://jason9521.github.io/weather-app-project/images/crescent-moon.png'
+        return 'images/crescent-moon.png'
     }
     else if (condition == 'partly-cloudy-day') {
-        return 'https://jason9521.github.io/weather-app-project/images/cloudy-day.png'
+        return 'images/cloudy-day.png'
     }
     else if (condition == 'partly-cloudy-night') {
-        return 'https://jason9521.github.io/weather-app-project/images/cloudy-night.png'
+        return 'images/cloudy-night.png'
     }
     else if (condition == 'cloudy') {
-        return 'https://jason9521.github.io/weather-app-project/images/clouds.png'
+        return 'images/clouds.png'
     }
     else if(condition == 'rain') {
-        return 'https://jason9521.github.io/weather-app-project/images/raining.png'
+        return 'images/raining.png'
     }
     else if (condition == 'snow') {
-        return 'https://jason9521.github.io/weather-app-project/images/snowy.png'
+        return 'images/snowy.png'
     }
     else if (condition == 'fog') {
-        return 'https://jason9521.github.io/weather-app-project/images/foggy.png'
+        return 'images/foggy.png'
     }
 }
 
@@ -387,11 +387,11 @@ function setWindDirection(target) {
 function setPrecipType(target) {
 
     if (target == null ) {
-        return 'https://jason9521.github.io/weather-app-project/images/water.png'
+        return 'images/water.png'
     } else if (target.includes('snow')) {
-        return 'https://jason9521.github.io/weather-app-project/images/snowflake.png'
+        return 'images/snowflake.png'
     } else {
-        return 'https://jason9521.github.io/weather-app-project/images/water.png'
+        return 'images/water.png'
     }
 }
 
