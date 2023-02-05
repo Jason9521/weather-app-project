@@ -531,9 +531,9 @@ video {
     }
 
     .search-input {
-        font-size: 1.2vw;
-        height: 1.2rem;
-        width: 30vw;
+        font-size: 2vw;
+        height: 1.5rem;
+        width: 40vw;
         margin: 0 1rem;
     }
 
@@ -594,6 +594,8 @@ video {
     .hourly-forecast h1 {
         font-size: 2.5vw;
         margin-bottom: 3rem;
+        text-decoration: underline 1px;
+        text-underline-offset: 0.3rem;
     }
 
     .hourly-forecast div {
